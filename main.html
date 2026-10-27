@@ -467,23 +467,21 @@
     .voiceover-title { max-width: 760px; color: var(--text); font-size: clamp(42px, 6vw, 78px); font-weight: 300; line-height: 1.04; letter-spacing: -.045em; }
     .voiceover-title em { color: var(--teal); font-weight: 300; }
     .voiceover-lede { margin-bottom: 4px; color: var(--text-body); font-size: 15px; line-height: 1.85; text-wrap: pretty; }
-    .voiceover-feature {
-      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
-      min-height: 330px; margin-bottom: 22px; overflow: hidden;
-      border: 1px solid #1b2926; border-radius: 4px;
-      background: linear-gradient(112deg, #0e1715 0%, #0b1211 56%, #101c1a 100%);
-    }
-    .voiceover-feature-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 5vw, 62px); }
-    .voiceover-label { margin-bottom: 22px; color: var(--teal-eyebrow); font: 10px var(--mono); letter-spacing: .2em; text-transform: uppercase; }
-    .voiceover-feature h3 { margin-bottom: 15px; color: var(--text); font-size: clamp(25px, 3vw, 38px); font-weight: 300; line-height: 1.2; letter-spacing: -.025em; }
-    .voiceover-feature-copy p { max-width: 430px; color: var(--text-nav); font-size: 13px; line-height: 1.8; }
-    .voiceover-reel { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 290px; padding: 28px; border-left: 1px solid #1b2926; background: radial-gradient(ellipse at 50% 58%, rgba(10,124,120,.15), transparent 56%); }
-    .voiceover-reel-top, .voiceover-reel-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #899591; font: 10px var(--mono); letter-spacing: .13em; text-transform: uppercase; }
-    .voiceover-reel-top span:last-child { color: #63817b; }
-    .voiceover-wave { height: 82px; display: flex; align-items: center; justify-content: center; gap: 5px; opacity: .72; }
-    .voiceover-wave i { display: block; width: 3px; height: var(--bar); border-radius: 4px; background: linear-gradient(to bottom, #4fa7a0, #155c58); }
-    .voiceover-wave i:nth-child(3n) { opacity: .58; }
-    .voiceover-reel-bottom span:last-child { color: #c5cfca; }
+    .voiceover-reels-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 22px; }
+    .voiceover-reels-head .voiceover-label { display: block; margin-bottom: 10px; }
+    .voiceover-reels-head h3 { color: var(--text); font-size: clamp(22px, 2.5vw, 30px); font-weight: 300; letter-spacing: -.025em; }
+    .voiceover-reel-controls { display: flex; gap: 8px; }
+    .voiceover-reel-control { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #26332f; border-radius: 50%; background: transparent; color: var(--text-soft); font: 18px var(--font); cursor: pointer; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+    .voiceover-reel-control:hover { border-color: var(--teal); background: rgba(10,124,120,.12); color: #fff; }
+    .voiceover-reel-control:disabled { opacity: .4; cursor: default; }
+    .voiceover-track { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 22vw, 272px); gap: 16px; overflow-x: auto; padding: 4px 2px 18px; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #28423d transparent; }
+    .voiceover-video-card { min-width: 0; scroll-snap-align: start; }
+    .voiceover-video-frame { position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid #1d302c; border-radius: 5px; background: #050807; box-shadow: 0 18px 40px rgba(0,0,0,.2); }
+    .voiceover-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .voiceover-video-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 13px; }
+    .voiceover-video-meta span { color: var(--teal-eyebrow); font: 9px var(--mono); letter-spacing: .12em; white-space: nowrap; }
+    .voiceover-video-meta a { color: var(--text-nav); font-size: 10px; text-decoration: none; white-space: nowrap; }
+    .voiceover-video-meta a:hover { color: var(--text); }
     .voiceover-services { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); border-radius: 4px; }
     .voiceover-service { min-height: 152px; padding: 25px 26px; }
     .voiceover-service + .voiceover-service { border-left: 1px solid var(--border); }
@@ -500,9 +498,7 @@
       .voiceover-section { padding: 78px 0 84px; }
       .voiceover-heading { grid-template-columns: 1fr; gap: 22px; margin-bottom: 36px; }
       .voiceover-lede { max-width: 590px; }
-      .voiceover-feature { grid-template-columns: 1fr; }
-      .voiceover-feature-copy { padding: 32px; }
-      .voiceover-reel { min-height: 230px; border-left: 0; border-top: 1px solid #1b2926; }
+      .voiceover-track { grid-auto-columns: min(72vw, 272px); }
     }
     @media (max-width: 560px) {
       .voiceover-services { grid-template-columns: 1fr; }
@@ -693,28 +689,52 @@
         <p class="voiceover-lede">A voice can do more than deliver words. It can set a mood, make an idea clear and help a story stay with its audience. Mathew brings a considered, engaging delivery to commercial, corporate and storytelling projects.</p>
       </div>
 
-      <div class="voiceover-feature">
-        <div class="voiceover-feature-copy">
-          <span class="voiceover-label">The voice reel</span>
-          <h3>Hear the work.<br />Feel the difference.</h3>
-          <p>Selected voice-over videos and audio samples will be featured here. The reel library is ready for Mathew’s previous work.</p>
-        </div>
-        <div class="voiceover-reel" role="group" aria-label="Voice-over reel library is being prepared">
-          <div class="voiceover-reel-top"><span>Mathew Bandara</span><span>Reel library</span></div>
-          <div class="voiceover-wave" aria-hidden="true">
-            <i style="--bar:18px"></i><i style="--bar:31px"></i><i style="--bar:23px"></i><i style="--bar:46px"></i><i style="--bar:30px"></i><i style="--bar:58px"></i><i style="--bar:35px"></i><i style="--bar:25px"></i><i style="--bar:51px"></i><i style="--bar:37px"></i><i style="--bar:64px"></i><i style="--bar:43px"></i><i style="--bar:27px"></i><i style="--bar:55px"></i><i style="--bar:32px"></i><i style="--bar:46px"></i><i style="--bar:22px"></i><i style="--bar:38px"></i><i style="--bar:57px"></i><i style="--bar:29px"></i><i style="--bar:45px"></i><i style="--bar:25px"></i><i style="--bar:36px"></i><i style="--bar:19px"></i>
-          </div>
-          <div class="voiceover-reel-bottom"><span>Voice samples coming soon</span><span>— / —</span></div>
+      <div class="voiceover-reels-head">
+        <div><span class="voiceover-label">Selected work · Voice reels</span><h3>Watch &amp; listen</h3></div>
+        <div class="voiceover-reel-controls" aria-label="Video carousel controls">
+          <button class="voiceover-reel-control" type="button" id="voiceReelPrev" aria-label="Scroll to previous videos">‹</button>
+          <button class="voiceover-reel-control" type="button" id="voiceReelNext" aria-label="Scroll to more videos">›</button>
         </div>
       </div>
-
+      <div class="voiceover-track" id="voiceReelTrack" role="region" aria-label="Mathew Bandara voice-over videos">
+        <article class="voiceover-video-card">
+          <div class="voiceover-video-frame">
+            <iframe src="https://www.tiktok.com/player/v1/7695009203496357128?autoplay=0&amp;music_info=0&amp;description=0" title="Mathew Bandara voice-over example 1 on TikTok" loading="lazy" allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <div class="voiceover-video-meta"><span>VOICE REEL · 01</span><a href="https://www.tiktok.com/@mathew_bandara/video/7695009203496357128" target="_blank" rel="noopener noreferrer">Open on TikTok ↗</a></div>
+        </article>
+        <article class="voiceover-video-card">
+          <div class="voiceover-video-frame">
+            <iframe src="https://www.tiktok.com/player/v1/7686587047888342293?autoplay=0&amp;music_info=0&amp;description=0" title="Mathew Bandara voice-over example 2 on TikTok" loading="lazy" allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <div class="voiceover-video-meta"><span>VOICE REEL · 02</span><a href="https://www.tiktok.com/@mathew_bandara/video/7686587047888342293" target="_blank" rel="noopener noreferrer">Open on TikTok ↗</a></div>
+        </article>
+        <article class="voiceover-video-card">
+          <div class="voiceover-video-frame">
+            <iframe src="https://www.tiktok.com/player/v1/7686588012087577877?autoplay=0&amp;music_info=0&amp;description=0" title="Mathew Bandara voice-over example 3 on TikTok" loading="lazy" allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <div class="voiceover-video-meta"><span>VOICE REEL · 03</span><a href="https://www.tiktok.com/@mathew_bandara/video/7686588012087577877" target="_blank" rel="noopener noreferrer">Open on TikTok ↗</a></div>
+        </article>
+        <article class="voiceover-video-card">
+          <div class="voiceover-video-frame">
+            <iframe src="https://www.tiktok.com/player/v1/7686581868891852053?autoplay=0&amp;music_info=0&amp;description=0" title="Mathew Bandara voice-over example 4 on TikTok" loading="lazy" allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <div class="voiceover-video-meta"><span>VOICE REEL · 04</span><a href="https://www.tiktok.com/@mathew_bandara/video/7686581868891852053" target="_blank" rel="noopener noreferrer">Open on TikTok ↗</a></div>
+        </article>
+        <article class="voiceover-video-card">
+          <div class="voiceover-video-frame">
+            <iframe src="https://www.tiktok.com/player/v1/7686569212940193044?autoplay=0&amp;music_info=0&amp;description=0" title="Mathew Bandara voice-over example 5 on TikTok" loading="lazy" allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <div class="voiceover-video-meta"><span>VOICE REEL · 05</span><a href="https://www.tiktok.com/@mathew_bandara/video/7686569212940193044" target="_blank" rel="noopener noreferrer">Open on TikTok ↗</a></div>
+        </article>
+      </div>
       <div class="voiceover-services" aria-label="Voice-over services">
         <article class="voiceover-service"><span class="voiceover-service-index">01 / BRAND</span><h3>Commercial &amp; advertising</h3><p>Character and clarity for brand films, campaigns and promotional content.</p></article>
         <article class="voiceover-service"><span class="voiceover-service-index">02 / BUSINESS</span><h3>Corporate &amp; explainers</h3><p>Clear, confident narration for company stories, presentations and explainers.</p></article>
         <article class="voiceover-service"><span class="voiceover-service-index">03 / STORY</span><h3>Narration &amp; storytelling</h3><p>An expressive read that helps ideas, information and stories connect.</p></article>
       </div>
       <div class="voiceover-footer">
-        <p class="voiceover-note">Have a script or a brief? Get in touch to discuss your voice-over project.</p>
+        <p class="voiceover-note">Play the reels here, or open any video on TikTok. Have a script or brief? Let’s talk.</p>
         <a class="voiceover-cta" href="#book" id="voiceOverBookBtn">Discuss a voice-over project <span aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -795,6 +815,17 @@
       document.getElementById('primaryBookBtn').addEventListener('click', openBooking);
       document.getElementById('aboutBookBtn').addEventListener('click', openBooking);
       document.getElementById('voiceOverBookBtn').addEventListener('click', openBooking);
+
+      var reelTrack = document.getElementById('voiceReelTrack');
+      var reelPrev = document.getElementById('voiceReelPrev');
+      var reelNext = document.getElementById('voiceReelNext');
+      function scrollReels(direction) {
+        var card = reelTrack.querySelector('.voiceover-video-card');
+        var gap = parseFloat(window.getComputedStyle(reelTrack).columnGap) || 16;
+        if (card) reelTrack.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+      }
+      reelPrev.addEventListener('click', function () { scrollReels(-1); });
+      reelNext.addEventListener('click', function () { scrollReels(1); });
 
       document.getElementById('exploreWorkBtn').addEventListener('click', function (e) {
         e.preventDefault();
