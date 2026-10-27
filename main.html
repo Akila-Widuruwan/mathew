@@ -398,11 +398,120 @@
     .modal .btn { width: 100%; height: 46px; margin-top: 6px; font-size: 14px; }
     .modal-confirm { margin-top: 14px; font-size: 13px; color: var(--teal); }
 
-    /* ---------- Desktop: lock hero to the screen ---------- */
-    @media (min-width: 1000px) and (min-height: 640px) {
-      html, body { height: 100%; overflow: hidden; }
-      .page { height: 100vh; height: 100dvh; min-height: 0; }
-      .hero { min-height: 0; }
+    /* ---------- About ---------- */
+    .about-section {
+      position: relative;
+      padding: clamp(88px, 11vw, 156px) 0 clamp(88px, 10vw, 136px);
+      border-top: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 82% 18%, rgba(10, 124, 120, .09), transparent 38%),
+        #0a0f0e;
+      scroll-margin-top: 24px;
+    }
+    .about-inner { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(48px, 8vw, 128px); align-items: center; }
+    .about-visual { position: relative; max-width: 470px; }
+    .about-photo-wrap { position: relative; aspect-ratio: 4 / 5; }
+    .about-photo-wrap::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 1px solid var(--frame); border-radius: 4px; }
+    .about-photo { display: block; position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; border-radius: 4px; filter: saturate(.82) contrast(1.04); }
+    .about-photo-label { position: absolute; right: -22px; bottom: 28px; z-index: 1; padding: 16px 20px; background: #0b1311; border: 1px solid #1b302c; border-radius: 3px; color: var(--text-soft); font-size: 12px; letter-spacing: .08em; }
+    .about-photo-label span { color: var(--teal); margin-right: 9px; }
+    .about-copy { max-width: 630px; }
+    .about-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; color: var(--teal-eyebrow); font: 11px/1.5 var(--mono); letter-spacing: .22em; text-transform: uppercase; }
+    .about-kicker::before { content: ""; width: 24px; height: 1px; background: var(--teal); }
+    .about-title { max-width: 600px; margin-bottom: 26px; color: var(--text); font-size: clamp(40px, 5.4vw, 72px); font-weight: 300; line-height: 1.08; letter-spacing: -.045em; }
+    .about-title em { color: var(--teal); font-weight: 300; }
+    .about-intro, .about-detail { color: var(--text-body); font-size: 15px; line-height: 1.85; text-wrap: pretty; }
+    .about-intro { margin-bottom: 18px; color: var(--text-soft); font-size: 17px; line-height: 1.75; }
+    .about-detail { margin-bottom: 34px; }
+    .about-principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 22px; margin-bottom: 34px; border-top: 1px solid var(--border); }
+    .about-principle { min-width: 0; }
+    .about-principle span { display: block; margin-bottom: 10px; color: var(--teal-eyebrow); font: 10px var(--mono); letter-spacing: .12em; }
+    .about-principle h3 { margin-bottom: 6px; color: var(--text); font-size: 14px; font-weight: 500; }
+    .about-principle p { color: var(--text-nav); font-size: 12px; line-height: 1.65; }
+    .about-cta { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-size: 13px; text-decoration: none; transition: color .2s ease; }
+    .about-cta:hover { color: #74c6c0; }
+    .about-cta span { color: var(--teal); font-size: 19px; transition: transform .2s ease; }
+    .about-cta:hover span { transform: translateX(4px); }
+
+    @media (max-width: 999px) {
+      .about-section { padding: 88px 0; }
+      .about-inner { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 44px; }
+      .about-photo-label { right: -12px; }
+    }
+    @media (max-width: 680px) {
+      .about-section { padding: 76px 0 84px; }
+      .about-inner { grid-template-columns: 1fr; gap: 50px; }
+      .about-visual { width: calc(100% - 14px); max-width: 460px; margin-left: 14px; }
+      .about-photo-label { right: -10px; bottom: 18px; padding: 13px 15px; }
+      .about-title { font-size: clamp(42px, 11vw, 62px); }
+      .about-principles { gap: 12px; }
+    }
+    @media (max-width: 420px) {
+      .about-principles { grid-template-columns: 1fr; gap: 18px; }
+      .about-principle { display: grid; grid-template-columns: 32px 1fr; column-gap: 10px; }
+      .about-principle span { grid-row: 1 / span 2; margin: 2px 0 0; }
+      .about-principle h3 { margin-bottom: 4px; }
+    }
+
+
+    /* ---------- Voice-over ---------- */
+    .voiceover-section {
+      padding: clamp(88px, 10vw, 140px) 0 clamp(88px, 9vw, 124px);
+      border-top: 1px solid var(--border);
+      background: #080c0b;
+      scroll-margin-top: 24px;
+    }
+    .voiceover-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .62fr); gap: 56px; align-items: end; margin-bottom: 54px; }
+    .voiceover-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; color: var(--teal-eyebrow); font: 11px/1.5 var(--mono); letter-spacing: .22em; text-transform: uppercase; }
+    .voiceover-kicker::before { content: ""; width: 24px; height: 1px; background: var(--teal); }
+    .voiceover-title { max-width: 760px; color: var(--text); font-size: clamp(42px, 6vw, 78px); font-weight: 300; line-height: 1.04; letter-spacing: -.045em; }
+    .voiceover-title em { color: var(--teal); font-weight: 300; }
+    .voiceover-lede { margin-bottom: 4px; color: var(--text-body); font-size: 15px; line-height: 1.85; text-wrap: pretty; }
+    .voiceover-feature {
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+      min-height: 330px; margin-bottom: 22px; overflow: hidden;
+      border: 1px solid #1b2926; border-radius: 4px;
+      background: linear-gradient(112deg, #0e1715 0%, #0b1211 56%, #101c1a 100%);
+    }
+    .voiceover-feature-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 5vw, 62px); }
+    .voiceover-label { margin-bottom: 22px; color: var(--teal-eyebrow); font: 10px var(--mono); letter-spacing: .2em; text-transform: uppercase; }
+    .voiceover-feature h3 { margin-bottom: 15px; color: var(--text); font-size: clamp(25px, 3vw, 38px); font-weight: 300; line-height: 1.2; letter-spacing: -.025em; }
+    .voiceover-feature-copy p { max-width: 430px; color: var(--text-nav); font-size: 13px; line-height: 1.8; }
+    .voiceover-reel { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 290px; padding: 28px; border-left: 1px solid #1b2926; background: radial-gradient(ellipse at 50% 58%, rgba(10,124,120,.15), transparent 56%); }
+    .voiceover-reel-top, .voiceover-reel-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #899591; font: 10px var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+    .voiceover-reel-top span:last-child { color: #63817b; }
+    .voiceover-wave { height: 82px; display: flex; align-items: center; justify-content: center; gap: 5px; opacity: .72; }
+    .voiceover-wave i { display: block; width: 3px; height: var(--bar); border-radius: 4px; background: linear-gradient(to bottom, #4fa7a0, #155c58); }
+    .voiceover-wave i:nth-child(3n) { opacity: .58; }
+    .voiceover-reel-bottom span:last-child { color: #c5cfca; }
+    .voiceover-services { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); border-radius: 4px; }
+    .voiceover-service { min-height: 152px; padding: 25px 26px; }
+    .voiceover-service + .voiceover-service { border-left: 1px solid var(--border); }
+    .voiceover-service-index { display: block; margin-bottom: 20px; color: var(--teal-eyebrow); font: 10px var(--mono); letter-spacing: .12em; }
+    .voiceover-service h3 { margin-bottom: 9px; color: var(--text); font-size: 15px; font-weight: 500; }
+    .voiceover-service p { max-width: 300px; color: var(--text-nav); font-size: 12px; line-height: 1.7; }
+    .voiceover-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 30px; }
+    .voiceover-note { color: #78817e; font-size: 11px; line-height: 1.65; }
+    .voiceover-cta { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-size: 13px; text-decoration: none; white-space: nowrap; transition: color .2s ease; }
+    .voiceover-cta:hover { color: #74c6c0; }
+    .voiceover-cta span { color: var(--teal); font-size: 19px; transition: transform .2s ease; }
+    .voiceover-cta:hover span { transform: translateX(4px); }
+    @media (max-width: 760px) {
+      .voiceover-section { padding: 78px 0 84px; }
+      .voiceover-heading { grid-template-columns: 1fr; gap: 22px; margin-bottom: 36px; }
+      .voiceover-lede { max-width: 590px; }
+      .voiceover-feature { grid-template-columns: 1fr; }
+      .voiceover-feature-copy { padding: 32px; }
+      .voiceover-reel { min-height: 230px; border-left: 0; border-top: 1px solid #1b2926; }
+    }
+    @media (max-width: 560px) {
+      .voiceover-services { grid-template-columns: 1fr; }
+      .voiceover-service { min-height: 0; padding: 21px 22px; }
+      .voiceover-service + .voiceover-service { border-left: 0; border-top: 1px solid var(--border); }
+      .voiceover-service-index { margin-bottom: 11px; }
+      .voiceover-footer { align-items: flex-start; flex-direction: column; gap: 16px; }
+      .voiceover-note { max-width: 350px; }
+      .voiceover-title { font-size: clamp(40px, 11vw, 58px); }
     }
 
     /* ---------- Tablet & phone: stacked, fluid ---------- */
@@ -551,6 +660,66 @@
     </div>
   </main>
 
+  <section class="about-section" id="about" aria-labelledby="aboutTitle">
+    <div class="container about-inner">
+      <div class="about-visual">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="mathew.png" alt="Mathew Bandara speaking on stage" loading="lazy" decoding="async" />
+          <div class="about-photo-label"><span>01 /</span> The person behind the voice</div>
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="about-kicker">A little about Mathew</p>
+        <h2 class="about-title" id="aboutTitle">A voice with <em>purpose.</em><br />A story with heart.</h2>
+        <p class="about-intro">Mathew Bandara is a Sri Lankan announcer, public speaker, voice-over artist and scriptwriter—bringing performance and language together to make messages matter.</p>
+        <p class="about-detail">From guiding a room through a live event to shaping the words behind a campaign, his work starts with listening. Understand the audience. Find the heart of the message. Then deliver it with clarity, warmth and feeling.</p>
+        <div class="about-principles" aria-label="Mathew's approach">
+          <article class="about-principle"><span>01</span><h3>Listen closely</h3><p>Every good moment begins with understanding the brief and the people it is for.</p></article>
+          <article class="about-principle"><span>02</span><h3>Find the story</h3><p>Shape the idea into words that feel clear, considered and human.</p></article>
+          <article class="about-principle"><span>03</span><h3>Make it land</h3><p>Bring the right energy to the room, the recording or the page.</p></article>
+        </div>
+        <a class="about-cta" href="#book" id="aboutBookBtn">Have a project in mind? Let’s talk <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="voiceover-section" id="voice-over" aria-labelledby="voiceOverTitle">
+    <div class="container">
+      <div class="voiceover-heading">
+        <div>
+          <p class="voiceover-kicker">Voice-over · Sri Lanka</p>
+          <h2 class="voiceover-title" id="voiceOverTitle">Made for the message.<br /><em>Built to be heard.</em></h2>
+        </div>
+        <p class="voiceover-lede">A voice can do more than deliver words. It can set a mood, make an idea clear and help a story stay with its audience. Mathew brings a considered, engaging delivery to commercial, corporate and storytelling projects.</p>
+      </div>
+
+      <div class="voiceover-feature">
+        <div class="voiceover-feature-copy">
+          <span class="voiceover-label">The voice reel</span>
+          <h3>Hear the work.<br />Feel the difference.</h3>
+          <p>Selected voice-over videos and audio samples will be featured here. The reel library is ready for Mathew’s previous work.</p>
+        </div>
+        <div class="voiceover-reel" role="group" aria-label="Voice-over reel library is being prepared">
+          <div class="voiceover-reel-top"><span>Mathew Bandara</span><span>Reel library</span></div>
+          <div class="voiceover-wave" aria-hidden="true">
+            <i style="--bar:18px"></i><i style="--bar:31px"></i><i style="--bar:23px"></i><i style="--bar:46px"></i><i style="--bar:30px"></i><i style="--bar:58px"></i><i style="--bar:35px"></i><i style="--bar:25px"></i><i style="--bar:51px"></i><i style="--bar:37px"></i><i style="--bar:64px"></i><i style="--bar:43px"></i><i style="--bar:27px"></i><i style="--bar:55px"></i><i style="--bar:32px"></i><i style="--bar:46px"></i><i style="--bar:22px"></i><i style="--bar:38px"></i><i style="--bar:57px"></i><i style="--bar:29px"></i><i style="--bar:45px"></i><i style="--bar:25px"></i><i style="--bar:36px"></i><i style="--bar:19px"></i>
+          </div>
+          <div class="voiceover-reel-bottom"><span>Voice samples coming soon</span><span>— / —</span></div>
+        </div>
+      </div>
+
+      <div class="voiceover-services" aria-label="Voice-over services">
+        <article class="voiceover-service"><span class="voiceover-service-index">01 / BRAND</span><h3>Commercial &amp; advertising</h3><p>Character and clarity for brand films, campaigns and promotional content.</p></article>
+        <article class="voiceover-service"><span class="voiceover-service-index">02 / BUSINESS</span><h3>Corporate &amp; explainers</h3><p>Clear, confident narration for company stories, presentations and explainers.</p></article>
+        <article class="voiceover-service"><span class="voiceover-service-index">03 / STORY</span><h3>Narration &amp; storytelling</h3><p>An expressive read that helps ideas, information and stories connect.</p></article>
+      </div>
+      <div class="voiceover-footer">
+        <p class="voiceover-note">Have a script or a brief? Get in touch to discuss your voice-over project.</p>
+        <a class="voiceover-cta" href="#book" id="voiceOverBookBtn">Discuss a voice-over project <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
   <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -624,6 +793,8 @@
 
       document.getElementById('headerBookBtn').addEventListener('click', openBooking);
       document.getElementById('primaryBookBtn').addEventListener('click', openBooking);
+      document.getElementById('aboutBookBtn').addEventListener('click', openBooking);
+      document.getElementById('voiceOverBookBtn').addEventListener('click', openBooking);
 
       document.getElementById('exploreWorkBtn').addEventListener('click', function (e) {
         e.preventDefault();
@@ -641,6 +812,11 @@
           var name = link.getAttribute('data-section');
           drawer.classList.remove('open');
           toggle.setAttribute('aria-expanded', 'false');
+          if (name === 'About' || name === 'Voice-Over') {
+            e.preventDefault();
+            document.getElementById(name === 'About' ? 'about' : 'voice-over').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+          }
           openModal('Mathew Bandara · ' + name, name, SECTIONS[name] || SECTIONS.About, name === 'Contact');
         });
       });
